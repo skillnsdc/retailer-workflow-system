@@ -2,7 +2,6 @@
 <html>
 
 <head>
-
 <title>Workforce Dashboard</title>
 
 <style>
@@ -25,21 +24,16 @@ background:white;
 }
 
 th,td{
-padding:12px;
 border:1px solid #ccc;
+padding:10px;
 }
 
 button{
-padding:6px 15px;
 background:#007bff;
 color:white;
 border:none;
-border-radius:4px;
+padding:8px 15px;
 cursor:pointer;
-}
-
-button:hover{
-background:#0056b3;
 }
 
 </style>
@@ -51,7 +45,6 @@ background:#0056b3;
 <div class="container">
 
 <h2>Workforce Dashboard</h2>
-
 <h3>Customer Queue</h3>
 
 <table>
@@ -76,7 +69,9 @@ background:#0056b3;
 
 function startProcess(){
 
-alert("Starting Account Opening Process");
+alert("Send OTP to Customer");
+
+window.location.href="otp.html";
 
 }
 
