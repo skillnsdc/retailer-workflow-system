@@ -10,26 +10,48 @@ body{
 font-family:Arial;
 background:#f4f6f9;
 text-align:center;
-padding-top:100px;
+padding-top:80px;
 }
 
 .box{
 background:white;
 width:400px;
 margin:auto;
-padding:40px;
+padding:30px;
 border-radius:10px;
 box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
 
+.balance{
+font-size:28px;
+color:green;
+margin:20px 0;
+}
+
 button{
 padding:10px 20px;
+margin:10px;
 background:#007bff;
 color:white;
 border:none;
 border-radius:5px;
 cursor:pointer;
-margin-top:10px;
+}
+
+table{
+width:100%;
+margin-top:20px;
+border-collapse:collapse;
+}
+
+th,td{
+border:1px solid #ddd;
+padding:8px;
+}
+
+th{
+background:#007bff;
+color:white;
 }
 
 </style>
@@ -42,37 +64,70 @@ margin-top:10px;
 
 <h2>Retailer Wallet</h2>
 
-<p><b>Retailer ID:</b> RET12345</p>
+<div class="balance" id="balance">
+Balance : ₹100
+</div>
 
-<p><b>Wallet Balance:</b> ₹<span id="balance">500</span></p>
+<button onclick="addMoney()">Add ₹50</button>
+<button onclick="deductMoney()">Account Opening (-₹20)</button>
 
-<button onclick="deduct()">Account Opening Charge ₹20</button>
+<table>
 
-<p id="status"></p>
+<tr>
+<th>Date</th>
+<th>Service</th>
+<th>Amount</th>
+</tr>
+
+<tbody id="history"></tbody>
+
+</table>
+
+<br>
+
+<button onclick="window.location.href='dashboard.html'">
+Back to Dashboard
+</button>
 
 </div>
 
 <script>
 
-let walletBalance = 500;
+let balance = 100;
 
-function deduct(){
+function addMoney(){
 
-let charge = 20;
+balance = balance + 50;
 
-if(walletBalance >= charge){
+document.getElementById("balance").innerHTML =
+"Balance : ₹" + balance;
 
-walletBalance = walletBalance - charge;
-
-document.getElementById("balance").innerHTML = walletBalance;
-
-document.getElementById("status").innerHTML = "₹20 deducted for account opening";
-
-}else{
-
-document.getElementById("status").innerHTML = "Insufficient wallet balance";
+addHistory("Wallet Topup","+50");
 
 }
+
+function deductMoney(){
+
+balance = balance - 20;
+
+document.getElementById("balance").innerHTML =
+"Balance : ₹" + balance;
+
+addHistory("Account Opening","-20");
+
+}
+
+function addHistory(service,amount){
+
+let table = document.getElementById("history");
+
+let row = table.insertRow();
+
+let date = new Date().toLocaleDateString();
+
+row.insertCell(0).innerHTML = date;
+row.insertCell(1).innerHTML = service;
+row.insertCell(2).innerHTML = amount;
 
 }
 
