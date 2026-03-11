@@ -1,35 +1,48 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
 <title>Admin Login</title>
 
 <style>
-
 body{
 font-family:Arial;
 background:#f2f2f2;
 text-align:center;
+padding-top:120px;
 }
 
 .login-box{
-margin-top:150px;
+background:white;
+width:350px;
+margin:auto;
+padding:30px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
 }
 
 input{
-padding:12px;
+width:90%;
+padding:10px;
 margin:10px;
-width:250px;
+border:1px solid #ccc;
+border-radius:5px;
+font-size:16px;
 }
 
 button{
-padding:12px 30px;
+padding:10px 25px;
 background:#007bff;
 color:white;
 border:none;
 border-radius:5px;
+font-size:16px;
 cursor:pointer;
 }
 
+button:hover{
+background:#0056b3;
+}
 </style>
 
 </head>
@@ -40,13 +53,13 @@ cursor:pointer;
 
 <h2>Admin Login</h2>
 
-<input type="text" id="username" placeholder="Username">
+<input type="text" id="username" placeholder="Enter Admin ID">
 
 <br>
 
-<input type="password" id="password" placeholder="Password">
+<input type="password" id="password" placeholder="Enter Password">
 
-<br>
+<br><br>
 
 <button onclick="login()">Login</button>
 
@@ -62,6 +75,8 @@ var pass=document.getElementById("password").value;
 if(user=="admin" && pass=="1234")
 {
 alert("Login Successful");
+
+window.location.href="admin-dashboard.html";
 }
 else
 {
@@ -74,3 +89,4 @@ alert("Invalid Login");
 
 </body>
 </html>
+```
