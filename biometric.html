@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Biometric Capture</title>
+
+<style>
+body{
+font-family: Arial;
+background:#f4f4f4;
+text-align:center;
+padding-top:100px;
+}
+
+.box{
+background:white;
+padding:40px;
+width:400px;
+margin:auto;
+border-radius:10px;
+box-shadow:0 0 10px #ccc;
+}
+
+button{
+padding:12px 25px;
+font-size:16px;
+border:none;
+background:#007bff;
+color:white;
+border-radius:5px;
+cursor:pointer;
+margin:10px;
+}
+
+button:hover{
+background:#0056b3;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Biometric Authentication</h2>
+
+<p>Select Authentication Method</p>
+
+<button onclick="finger()">Fingerprint</button>
+
+<button onclick="iris()">Iris Scan</button>
+
+<p id="status"></p>
+
+</div>
+
+<script>
+
+function finger(){
+document.getElementById("status").innerHTML="Opening Fingerprint Device...";
+
+setTimeout(function(){
+window.location.href="success.html";
+},3000);
+}
+
+function iris(){
+document.getElementById("status").innerHTML="Opening Iris Scanner...";
+
+setTimeout(function(){
+window.location.href="success.html";
+},3000);
+}
+
+</script>
+
+</body>
+</html>
