@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Retailer Portal</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f4f4;
+text-align:center;
+}
+
+.container{
+margin-top:120px;
+}
+
+input,select{
+padding:10px;
+width:250px;
+margin:10px;
+}
+
+button{
+padding:12px 30px;
+background:#28a745;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Retailer Portal</h2>
+
+<h3>Open New IPPB Account</h3>
+
+<input type="text" id="mobile" placeholder="Customer Mobile Number">
+
+<br>
+
+<select id="product">
+
+<option>Select Product</option>
+
+<option>Regular Savings Account</option>
+
+<option>Savings Account</option>
+
+<option>Pension Savings Account</option>
+
+</select>
+
+<br>
+
+<button onclick="sendWorkflow()">Continue</button>
+
+</div>
+
+<script>
+
+function sendWorkflow(){
+
+var mobile=document.getElementById("mobile").value;
+var product=document.getElementById("product").value;
+
+if(mobile=="")
+{
+alert("Enter Mobile Number");
+return;
+}
+
+alert("Workflow Sent Successfully");
+
+}
+
+</script>
+
+</body>
+
+</html>
