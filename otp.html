@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>OTP Verification</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f2f2f2;
+text-align:center;
+}
+
+.container{
+margin-top:150px;
+}
+
+input{
+padding:10px;
+width:220px;
+margin:10px;
+}
+
+button{
+background:#28a745;
+color:white;
+border:none;
+padding:10px 20px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>OTP Verification</h2>
+
+<p>OTP Sent to Customer Mobile</p>
+
+<input type="text" id="otp" placeholder="Enter OTP">
+
+<br>
+
+<button onclick="verifyOTP()">Verify OTP</button>
+
+</div>
+
+<script>
+
+function verifyOTP(){
+
+var otp=document.getElementById("otp").value;
+
+if(otp=="123456")
+{
+
+alert("OTP Verified Successfully");
+
+alert("Proceed to Next Account Opening Step");
+
+}
+else
+{
+
+alert("Invalid OTP");
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
