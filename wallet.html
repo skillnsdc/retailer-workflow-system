@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Retailer Wallet</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6f9;
+text-align:center;
+padding-top:100px;
+}
+
+.box{
+background:white;
+width:400px;
+margin:auto;
+padding:40px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+button{
+padding:10px 20px;
+background:#007bff;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+margin-top:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Retailer Wallet</h2>
+
+<p><b>Retailer ID:</b> RET12345</p>
+
+<p><b>Wallet Balance:</b> ₹<span id="balance">500</span></p>
+
+<button onclick="deduct()">Account Opening Charge ₹20</button>
+
+<p id="status"></p>
+
+</div>
+
+<script>
+
+let walletBalance = 500;
+
+function deduct(){
+
+let charge = 20;
+
+if(walletBalance >= charge){
+
+walletBalance = walletBalance - charge;
+
+document.getElementById("balance").innerHTML = walletBalance;
+
+document.getElementById("status").innerHTML = "₹20 deducted for account opening";
+
+}else{
+
+document.getElementById("status").innerHTML = "Insufficient wallet balance";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
