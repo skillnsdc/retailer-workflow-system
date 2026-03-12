@@ -67,7 +67,25 @@ window.location.href="biometric.html";
 }
 
 </script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyC5vkhcKzk0UTewnqtXVMeWpBLV6NwKR1I",
+    authDomain: "retailer-workflow.firebaseapp.com",
+    projectId: "retailer-workflow",
+    storageBucket: "retailer-workflow.firebasestorage.app",
+    messagingSenderId: "758797941246",
+    appId: "1:758797941246:web:2e6447bfcb17acfc8ea8af"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script>
 </body>
 
 </html>
