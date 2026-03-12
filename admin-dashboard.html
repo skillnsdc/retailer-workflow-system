@@ -2,7 +2,6 @@
 <html>
 
 <head>
-
 <title>Admin Dashboard</title>
 
 <style>
@@ -11,29 +10,36 @@ body{
 font-family:Arial;
 background:#f4f6f9;
 text-align:center;
-padding-top:80px;
 }
 
 .box{
 background:white;
-width:450px;
+width:400px;
 margin:auto;
-padding:40px;
+margin-top:80px;
+padding:30px;
 border-radius:10px;
 box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
 
 button{
-display:block;
 width:100%;
 padding:12px;
-margin:10px 0;
-background:#007bff;
-color:white;
+margin-top:10px;
 border:none;
-border-radius:5px;
+background:#3498db;
+color:white;
 font-size:16px;
 cursor:pointer;
+border-radius:5px;
+}
+
+button:hover{
+background:#2980b9;
+}
+
+.finger{
+background:#27ae60;
 }
 
 </style>
@@ -45,6 +51,10 @@ cursor:pointer;
 <div class="box">
 
 <h2>Admin Control Panel</h2>
+
+<button class="finger" onclick="startFingerprint()">
+Start Fingerprint Capture
+</button>
 
 <button onclick="window.location.href='applications.html'">
 View Applications
@@ -63,6 +73,46 @@ Logout
 </button>
 
 </div>
+
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-database.js";
+
+const firebaseConfig = {
+
+apiKey:"AIzaSyC5vkhcKzk0UTewnqtXVMeWpBLV6NwKR1I",
+
+authDomain:"retailer-workflow.firebaseapp.com",
+
+databaseURL:"https://retailer-workflow-default-rtdb.asia-southeast1.firebasedatabase.app",
+
+projectId:"retailer-workflow",
+
+storageBucket:"retailer-workflow.firebasestorage.app",
+
+messagingSenderId:"758797941246",
+
+appId:"1:758797941246:web:2e6447bfcb17acfc8ea8af"
+
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getDatabase(app);
+
+
+window.startFingerprint = function(){
+
+set(ref(db,"live/fingerprint"),"capture");
+
+alert("Fingerprint request sent to retailer device");
+
+}
+
+</script>
 
 </body>
 
