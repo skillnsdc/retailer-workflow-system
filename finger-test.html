@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mantra MFS110 Fingerprint Test</title>
+
+<style>
+body{
+font-family: Arial, sans-serif;
+text-align:center;
+margin-top:100px;
+background:#f9f9f9;
+}
+
+button{
+padding:15px 30px;
+font-size:18px;
+background:#2ecc71;
+border:none;
+color:white;
+cursor:pointer;
+border-radius:5px;
+}
+
+button:hover{
+background:#27ae60;
+}
+
+pre{
+margin-top:30px;
+background:#ffffff;
+padding:20px;
+width:70%;
+margin-left:auto;
+margin-right:auto;
+border:1px solid #ddd;
+text-align:left;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Mantra MFS110 Fingerprint Capture Test</h2>
+
+<button onclick="captureFinger()">Capture Fingerprint</button>
+
+<pre id="result">Fingerprint result will appear here</pre>
+
+<script>
+
+function captureFinger(){
+
+var url = "http://127.0.0.1:11100/rd/capture";
+
+var pidOptions = `
+<PidOptions ver="1.0">
+<Opts fCount="1"
+fType="0"
+iCount="0"
+pCount="0"
+format="0"
+pidVer="2.0"
+timeout="20000"
+env="P"
+posh="UNKNOWN"/>
+</PidOptions>
+`;
+
+fetch(url,{
+method:"CAPTURE",
+body:pidOptions
+})
+.then(function(response){
+return response.text();
+})
+.then(function(data){
+
+document.getElementById("result").textContent = data;
+
+alert("Fingerprint captured successfully");
+
+})
+.catch(function(error){
+
+alert("RD Service not running or device not connected");
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
